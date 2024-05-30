@@ -27,7 +27,7 @@ services:
     # mount serial device - take care to grant sufficient permissions to the device: <host_dev>:<container_dev>
     # put <container_dev> into your printer.cfg
     devices:
-      - /dev/ttyUSB0:/dev/ttyUSB0
+      - /dev/serial/by-id/usb-Klipper_stm32g0b1xx_2B0031000250415339373620-if00
 
   ##################################################################
   # Example config for a second printer on a different serial port
@@ -68,7 +68,7 @@ services:
     restart: unless-stopped
     container_name: fluidd
     ports:
-      - 8010:80
+      - 8010:8069
     depends_on: 
       - klipper
       # - klipper_another_printer
